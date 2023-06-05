@@ -34,9 +34,20 @@ res.json({
 }
 
 
+const eliminarCooperativa = async(req,res)=>{
+const id_cooperativa = req.params.id_cooperativa;
+const borrado = await pool.query('delete from cooperativa where id_cooperativa = $1',
+[
+    id_cooperativa
+]) 
+res.status(200).json(borrado.rows)
+}
+
+
 module.exports = {
     obtenerCooperativas,
     crearCooperativa,
-    obtenerCooperativaPorCiudad
+    obtenerCooperativaPorCiudad,
+    eliminarCooperativa
 }
 

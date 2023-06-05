@@ -40,7 +40,9 @@ const borrado = await pool.query('delete from cooperativa where id_cooperativa =
 [
     id_cooperativa
 ]) 
-res.status(200).json(borrado.rows)
+res.json({
+    message: 'Cooperativa eliminada sastifactoriamente',
+})
 }
 
 

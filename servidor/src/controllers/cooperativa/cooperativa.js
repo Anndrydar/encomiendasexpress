@@ -46,10 +46,27 @@ res.json({
 }
 
 
+
+const editarCooperativa  = async(req,res)=>{
+const id_cooperativa = req.params.id_cooperativa;
+const {nombre,ciudad,terminal} = req.body;
+const edicion = await pool.query('update cooperativa set nombre = $1, ciudad = $2, terminal = $3 where id_cooperativa = $4',[
+     nombre,
+     ciudad,
+     terminal,
+     id_cooperativa
+])
+res.json({
+    message:'Cooperativa actualizada sastifactoriamente'
+})
+}
+
+
 module.exports = {
     obtenerCooperativas,
     crearCooperativa,
     obtenerCooperativaPorCiudad,
-    eliminarCooperativa
+    eliminarCooperativa,
+    editarCooperativa
 }
 

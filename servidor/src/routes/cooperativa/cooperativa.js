@@ -2,7 +2,8 @@ const {Router} = require('express')
 const {obtenerCooperativas,
         obtenerCooperativaPorCiudad, 
         crearCooperativa,
-        eliminarCooperativa
+        eliminarCooperativa,
+        editarCooperativa
 } = require('../../controllers/cooperativa/cooperativa')
 
 
@@ -14,6 +15,7 @@ router.get('/cooperativas',obtenerCooperativas)
 router.get('/cooperativas/:ciudad',obtenerCooperativaPorCiudad)
 router.post('/cooperativas',crearCooperativa)
 router.delete('/cooperativas/:id_cooperativa',eliminarCooperativa)
+router.put('/cooperativas/:id_cooperativa',editarCooperativa)
 
 
 
